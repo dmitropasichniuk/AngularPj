@@ -1,0 +1,30 @@
+<div class="card">
+  <h2 [ngStyle]="{
+    color: title.length < 5 ? 'orange' : 'green',
+    fontWeight: title.length < 7 ? 'normal' : 'bold'
+  }">{{title}}</h2>
+
+  <p class="text" [ngClass]="{
+    red: textColor === 'red',
+    blue: textColor === 'blue',
+    orange: textColor === 'orange'
+  }">{{text}}</p>
+  
+  <div class="button">
+  <button (click)="textColor= 'red'">Set Red</button>
+  <button (click)="textColor= 'blue'">Set Blue</button>
+  <button (click)="textColor= 'orange'">Set Orange</button>
+  </div>
+
+  <div class="button">
+  <button (click)="changeTitle()">Change title</button>
+  <button (click)="title = 'inline title'">Change inline title</button>
+  </div>
+
+  <!-- <div>
+  <input type="text" #myInput (input)="inputHendler(myInput.value)" [value]="title">
+  </div> -->
+<div>
+  <input type="text" [(ngModel)]="title" (ngModelChange)="changeHandler()">
+</div>
+</div>
